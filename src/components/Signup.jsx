@@ -6,9 +6,20 @@ const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}$/;
+    return regex.test(password);
+  };
   async function submit(e) {
     e.preventDefault();
+    if (!validatePassword(password)) {
+      setError(
+        "Password must be 8-16 characters long, contain at least one uppercase letter, one lowercase letter, and one special symbol."
+      );
+      return;
+    }
     try {
       const res = await axios.post("http://localhost:8000/Signup", {
         email,
@@ -44,6 +55,7 @@ const Signup = () => {
           placeholder="Password"
           required
         />
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <div className="buttons">
           <button className="signup_button" type="submit">
             Sign Up
