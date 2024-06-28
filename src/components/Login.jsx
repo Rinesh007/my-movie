@@ -1,13 +1,32 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 
-const Login = () => {
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/App");
-  };
+  async function handleClick(e) {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8000/", {
+        email,
+        password,
+      });
+
+      if (res.data === "exist") {
+        navigate("/App", { state: { id: email } });
+      } else if (res.data === "notexist") {
+        alert("User has not signed up");
+      }
+    } catch (e) {
+      alert("wrong details");
+      console.log(e);
+    }
+  }
+
   const handleSignup = () => {
     navigate("/Signup");
   };
@@ -21,17 +40,20 @@ const Login = () => {
 
         <input
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="login_email"
           placeholder="Email"
           required
         />
         <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           className="login_password"
           placeholder="Password"
           required
         />
-
         <div className="buttons">
           <button type="submit" className="login_button">
             Login
@@ -47,6 +69,6 @@ const Login = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Login;

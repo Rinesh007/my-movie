@@ -3,6 +3,7 @@ import Axios from "axios";
 import styled from "styled-components";
 import MovieComponent from "./components/MovieComponent";
 import MovieInfoComponent from "./components/MovieInfoComponent";
+import { useLocation } from "react-router-dom";
 
 export const API_KEY = "482155f6";
 
@@ -69,6 +70,7 @@ const Placeholder = styled.img`
 `;
 
 function App() {
+  const location = useLocation();
   const [searchQuery, updateSearchQuery] = useState("");
 
   const [movieList, updateMovieList] = useState([]);
