@@ -1,3 +1,6 @@
+body {
+  background-color: #f5f3f3;
+}
 .box {
   max-width: 450px;
   margin: 0 auto;
@@ -5,14 +8,13 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 200px;
-
+  background-color: white;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
 .login_email {
-  width: 90%;
+  width: 95%;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 15px;
@@ -20,7 +22,7 @@
   border-radius: 4px;
 }
 .login_password {
-  width: 90%;
+  width: 95%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
@@ -45,15 +47,13 @@
   cursor: pointer;
 }
 .buttons {
-  width: 150px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  line-height: 5px;
+  align-items: center;
 }
-.movie_logo {
-  width: 100px;
-  height: 100px;
-}
+
 .box img {
   max-width: 100%;
   max-height: 100%;
@@ -67,9 +67,20 @@
   border-radius: 4px;
 }
 .logo {
-  display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 .login_logo {
+  width: 500px;
   height: 100px;
+}
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

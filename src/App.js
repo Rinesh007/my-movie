@@ -12,12 +12,14 @@ const Container = styled.div`
   flex-direction: column;
 `;
 const AppName = styled.div`
+  color: grey;
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 const Header = styled.div`
-  background-image: linear-gradient(45deg, red, blue);
+  background-color: #dfd7d6;
+
   color: white;
   display: flex;
   justify-content: space-between;
@@ -34,7 +36,7 @@ const SearchBox = styled.div`
   padding: 10px 10px;
   border-radius: 6px;
   margin-left: 20px;
-  width: 30%;
+  width: 25%;
   background-color: white;
 `;
 const SearchIcon = styled.img`
@@ -42,6 +44,7 @@ const SearchIcon = styled.img`
   height: 32px;
 `;
 const MovieImage = styled.img`
+color: black
   width: 48px;
   height: 48px;
   margin: 15px;
@@ -106,12 +109,9 @@ const MovieInfo = styled.span`
 `;
 
 function App() {
-  const location = useLocation();
   const [searchQuery, updateSearchQuery] = useState("");
-
   const [movieList, updateMovieList] = useState([]);
   const [selectedMovie, onMovieSelect] = useState();
-
   const [timeoutId, updateTimeoutId] = useState();
 
   const fetchData = async (searchString) => {
@@ -161,7 +161,7 @@ function App() {
             />
           ))
         ) : (
-          <Placeholder src="movie.webp" />
+          <p>Homepage</p>
         )}
       </MovieListContainer>
     </Container>

@@ -34,7 +34,6 @@ function Login() {
     <div className="box">
       <form onSubmit={handleClick}>
         <div className="logo">
-          <img src="movie-icon.webp" className="movie_logo" />
           <img src="login-logo.jpg" className="login_logo" />
         </div>
 
@@ -58,6 +57,8 @@ function Login() {
           <button type="submit" className="login_button">
             Login
           </button>
+
+          <p>Create a new account</p>
           <button
             type="button"
             className="signup_button"
